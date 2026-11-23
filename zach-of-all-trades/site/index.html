@@ -1,295 +1,278 @@
 <!doctype html>
-<html lang="en" data-type="service">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zach of All Trades | Handyman, Priced Up Front</title>
-<meta name="description" content="Handyman work with the price up front. Pick a job, see a flat price, book a slot. Bigger jobs get a photo quote by text within 2 hours.">
-<meta name="page-type" content="service">
-<meta name="site-kind" content="other">
-<meta name="theme-color" content="#10203a">
-<meta property="og:title" content="Zach of All Trades | Handyman, Priced Up Front">
-<meta property="og:description" content="Pick the job, see the price, book a slot. $100/hr, flat prices on common jobs.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f26a1b'/%3E%3Cpath d='M9 10h14L10 22h14' fill='none' stroke='%2310203a' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zach of All Trades | Handyman, Prices Up Front</title>
+<meta name="description" content="Handyman work with the price up front. See a flat price and book online, or send photos of a bigger job and get a quote by text.">
+<meta name="theme-color" content="#1e4fd6">
+<meta property="og:title" content="Zach of All Trades | Handyman, Prices Up Front">
+<meta property="og:description" content="See a flat price and book online, or send photos for a quote by text.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%231e4fd6'/%3E%3Cpath d='M9 9.5h14L9.5 22.5H23' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='square'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /*
-  Built with: taste-skill (layout, copy, one system), impeccable craft floor
-  (contrast, states, browser surfaces), Emil Kowalski motion rules (ease-out,
-  scale on press, under 300ms, reduced motion respected).
-
-  SETUP before launch: edit the CONFIG block in the script at the bottom
-  (town, phone, email, form endpoint, prices).
+  Layout: one job per screen. Hero = the booking tool with prices visible.
+  Blue carries structure, orange is only for actions, black for text.
+  SETUP before launch: edit CONFIG at the bottom (town, phone, email, endpoint, prices).
 */
 :root{
-  --bg:#f6f4ef;
-  --surface:#ffffff;
-  --ink:#10203a;
-  --ink-2:#3c4759;
-  --muted:#5b6476;
-  --line:#e2ded5;
-  --line-strong:#cfc9bc;
-  --accent:#f26a1b;
-  --accent-ink:#10203a;
-  --accent-soft:#fde6d6;
-  --navy:#10203a;
-  --navy-2:#1b2f50;
-  --on-navy:#f6f4ef;
-  --on-navy-muted:#b8c1d1;
-  --good:#1f7a4d;
+  --bg:#ffffff;
+  --paper:#f4f6f9;
+  --ink:#0b0b0c;
+  --ink-2:#363a43;
+  --muted:#5f6470;
+  --line:#e2e5ea;
+  --line-2:#c9ced7;
+  --blue:#1e4fd6;
+  --blue-dark:#14379a;
+  --blue-soft:#eaf0fd;
+  --on-blue:#ffffff;
+  --on-blue-2:#cdd9fb;
+  --orange:#ff6b1a;
+  --orange-hover:#ff7d33;
+  --on-orange:#0b0b0c;
+  --good:#16794a;
   --bad:#b42318;
 
-  --ease-out:cubic-bezier(0.23,1,0.32,1);
-  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --display:"Big Shoulders Display","Arial Narrow",system-ui,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
 
-  --r-sm:8px;
-  --r-md:12px;
-  --r-lg:18px;
-
-  --display:"Archivo",system-ui,sans-serif;
-  --body:"Instrument Sans",system-ui,sans-serif;
-
-  --gutter:clamp(16px,4vw,48px);
-  --wrap:1200px;
-  --shadow:0 1px 2px rgba(16,32,58,.06),0 12px 32px -12px rgba(16,32,58,.18);
+  --ease:cubic-bezier(0.23,1,0.32,1);
+  --r:6px;
+  --gutter:clamp(16px,4vw,40px);
+  --wrap:1180px;
+  color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;color-scheme:light}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-::selection{background:var(--accent);color:var(--accent-ink)}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
-img{max-width:100%;display:block}
-a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1.5px}
-h1,h2,h3{font-family:var(--display);font-stretch:78%;font-weight:850;letter-spacing:-0.02em;line-height:.98;margin:0;text-wrap:balance}
-p{margin:0;text-wrap:pretty}
-.wrap{max-width:calc(var(--wrap) + var(--gutter)*2);margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--body);-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
-.skip{position:absolute;left:var(--gutter);top:-60px;background:var(--ink);color:var(--on-navy);padding:10px 14px;border-radius:var(--r-sm);z-index:100;text-decoration:none;font-weight:600}
-.skip:focus{top:12px}
+::selection{background:var(--blue);color:var(--on-blue)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:1.5px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:.005em;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.wrap{max-width:calc(var(--wrap) + 2*var(--gutter));margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
 .num{font-variant-numeric:tabular-nums}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:var(--r);z-index:100;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+[hidden]{display:none!important}
 
 /* Buttons */
-.btn{--bh:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--bh);padding:0 22px;border-radius:var(--r-md);border:1.5px solid transparent;font:650 16px/1 var(--body);text-decoration:none;cursor:pointer;
-  transition:transform 160ms var(--ease-out),background-color 200ms var(--ease-out),border-color 200ms var(--ease-out),box-shadow 200ms var(--ease-out);
-  -webkit-tap-highlight-color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:var(--r);border:2px solid transparent;font:700 16px/1 var(--body);text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:transform 140ms var(--ease),background-color 160ms var(--ease),border-color 160ms var(--ease),color 160ms var(--ease);-webkit-tap-highlight-color:transparent}
 .btn:active{transform:scale(.97)}
-.btn--primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 1px 0 rgba(16,32,58,.15),0 6px 16px -6px rgba(242,106,27,.55)}
-.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-.btn--dark{background:var(--ink);color:var(--on-navy)}
-.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
-.btn svg{width:18px;height:18px;transition:transform 200ms var(--ease-out)}
-@media (hover:hover) and (pointer:fine){
-  .btn--primary:hover{background:#ff7a2c;transform:translateY(-1px)}
-  .btn--ghost:hover{border-color:var(--ink);background:rgba(16,32,58,.03)}
-  .btn--dark:hover{background:var(--navy-2);transform:translateY(-1px)}
-  .btn:hover svg{transform:translateX(3px)}
-  .btn:active{transform:scale(.97)}
+.btn--go{background:var(--orange);color:var(--on-orange)}
+.btn--line{background:var(--bg);color:var(--ink);border-color:var(--ink)}
+.btn--white{background:#fff;color:var(--ink)}
+.btn[disabled]{background:var(--line);color:var(--muted);cursor:not-allowed;transform:none}
+.btn svg{width:18px;height:18px}
+@media (hover:hover){
+  .btn--go:not([disabled]):hover{background:var(--orange-hover)}
+  .btn--line:hover{background:var(--ink);color:#fff}
+  .btn--white:hover{background:var(--blue-soft)}
 }
 
-/* Nav */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(246,244,239,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color 200ms var(--ease-out)}
-.nav.is-stuck{border-bottom-color:var(--line)}
-.nav__row{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-stretch:85%;font-weight:850;font-size:21px;letter-spacing:-0.01em}
-.brand__mark{width:32px;height:32px;flex:none}
-.nav__links{display:flex;gap:28px;align-items:center}
-.nav__links a:not(.btn){text-decoration:none;font-weight:550;color:var(--ink-2);position:relative;padding:12px 0}
-.nav__links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 220ms var(--ease-out)}
-@media (hover:hover){.nav__links a:not(.btn):hover::after{transform:scaleX(1)}}
-.nav__links .btn{--bh:44px;padding:0 18px;font-size:15px}
-@media (max-width:860px){.nav__links a:not(.btn){display:none}}
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.top__row{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:34px;height:34px;flex:none}
+.logo span{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:.01em;line-height:1;text-transform:uppercase}
+.top nav{display:flex;align-items:center;gap:6px}
+.top nav a.l{padding:10px 12px;text-decoration:none;font-weight:600;color:var(--ink-2);border-radius:var(--r);min-height:44px;display:inline-flex;align-items:center}
+@media (hover:hover){.top nav a.l:hover{background:var(--paper);color:var(--ink)}}
+.top .btn{min-height:44px;padding:0 16px;font-size:15px;margin-left:6px}
+@media (max-width:880px){.top nav a.l{display:none}}
+@media (max-width:420px){.logo span{font-size:22px}}
 
 /* Hero */
-.hero{padding:clamp(40px,8vh,96px) 0 clamp(56px,9vh,112px)}
-.hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
-.hero h1{font-size:clamp(46px,7.2vw,96px)}
-.hero h1 em{font-style:normal;color:var(--accent);}
-.hero__lead{margin-top:24px;font-size:clamp(18px,1.6vw,20px);color:var(--ink-2);max-width:34ch}
-.hero__facts{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--ink-2);font-weight:550;font-size:15px}
-.hero__facts>span{display:inline-flex;align-items:center;gap:8px}
-.hero__facts svg{width:18px;height:18px;color:var(--accent)}
-.hero__actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
-@media (max-width:960px){
-  .hero__grid{grid-template-columns:1fr}
-  .hero__lead{max-width:none}
+.hero{padding:clamp(32px,6vw,72px) 0 clamp(48px,7vw,88px);border-bottom:1px solid var(--line)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(28px,5vw,64px);align-items:start}
+.hero h1{font-size:clamp(52px,7.4vw,96px);text-transform:uppercase}
+.hero h1 .b{color:var(--blue)}
+.hero__lead{margin-top:20px;font-size:clamp(18px,1.6vw,20px);color:var(--ink-2);max-width:36ch}
+.paths{margin-top:28px;display:grid;gap:10px;max-width:460px}
+.path{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 16px;border:2px solid var(--line);border-radius:var(--r);text-decoration:none;background:var(--bg);transition:border-color 160ms var(--ease),background-color 160ms var(--ease)}
+.path:active{transform:scale(.99)}
+@media (hover:hover){.path:hover{border-color:var(--ink)}}
+.path__ico{width:44px;height:44px;border-radius:var(--r);display:grid;place-items:center;background:var(--blue-soft);color:var(--blue)}
+.path__ico svg{width:24px;height:24px}
+.path b{display:block;font-size:17px}
+.path small{display:block;color:var(--muted);font-size:15px}
+.path .arr{width:20px;height:20px;color:var(--ink-2)}
+.trust{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;font-weight:600;color:var(--ink-2)}
+.trust>span{display:inline-flex;align-items:center;gap:6px}
+.trust svg{width:18px;height:18px;color:var(--blue)}
+@media (max-width:960px){.hero__grid{grid-template-columns:1fr}.paths{max-width:none}}
+@media (prefers-reduced-motion:no-preference){
+  .hero__copy>*{animation:up 520ms var(--ease) both}
+  .hero__copy>*:nth-child(2){animation-delay:60ms}
+  .hero__copy>*:nth-child(3){animation-delay:120ms}
+  .hero__copy>*:nth-child(4){animation-delay:180ms}
+  .tool{animation:up 600ms var(--ease) 120ms both}
 }
+@keyframes up{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* Hero entrance: once, staggered, from already-close states */
-[data-enter]>*{animation:enter 700ms var(--ease-out) both}
-[data-enter]>*:nth-child(2){animation-delay:70ms}
-[data-enter]>*:nth-child(3){animation-delay:140ms}
-[data-enter]>*:nth-child(4){animation-delay:210ms}
-[data-enter]>*:nth-child(5){animation-delay:280ms}
-.quote[data-enter-card]{animation:enter-card 800ms var(--ease-out) 180ms both}
-@keyframes enter{from{opacity:0;transform:translateY(14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
-@keyframes enter-card{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
-
-/* Quote tool */
-.quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:96px}
-.quote__head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}
-#opt-title{font-family:var(--display);font-stretch:85%;font-weight:800;font-size:24px;margin-bottom:16px}
-.quote__title{font-family:var(--display);font-stretch:85%;font-weight:800;font-size:19px}
-.steps{display:flex;gap:6px}
-.steps i{width:22px;height:4px;border-radius:4px;background:var(--line);transition:background-color 240ms var(--ease-out)}
-.steps i.on{background:var(--accent)}
-.quote__body{padding:22px;min-height:440px;position:relative}
+/* Booking tool */
+.tool{border:2px solid var(--ink);border-radius:8px;background:var(--bg);scroll-margin-top:84px;overflow:hidden}
+.tool__bar{background:var(--blue);color:var(--on-blue);padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.tool__bar h2{font-size:26px;text-transform:uppercase;letter-spacing:.02em}
+.stepper{display:flex;gap:4px;list-style:none;margin:0;padding:0;font-size:13px;font-weight:700}
+.stepper li{padding:5px 9px;border-radius:999px;color:var(--on-blue-2);white-space:nowrap}
+.stepper li.on{background:#fff;color:var(--blue)}
+.stepper li.done{color:#fff}
+@media (max-width:430px){.stepper li:not(.on){display:none}}
+.tool__body{padding:6px 18px 18px}
 .panel{display:none}
-.panel.is-active{display:block;animation:panel-in 260ms var(--ease-out) both}
-@keyframes panel-in{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
-.q-label{font-weight:650;font-size:15px;margin-bottom:12px;display:block}
-.jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.job{display:flex;align-items:center;gap:10px;min-height:52px;padding:10px 12px;border:1.5px solid var(--line);border-radius:var(--r-md);background:var(--surface);font:550 15px/1.2 var(--body);color:var(--ink);text-align:left;cursor:pointer;
-  transition:border-color 160ms var(--ease-out),background-color 160ms var(--ease-out),transform 160ms var(--ease-out)}
-.job svg{width:22px;height:22px;flex:none;color:var(--ink-2)}
-.job:active{transform:scale(.98)}
-@media (hover:hover){.job:hover{border-color:var(--line-strong);background:#fbfaf7}}
-.job[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
-.job[aria-pressed="true"] svg{color:var(--accent-ink)}
-.opts{display:grid;gap:18px}
-.seg{display:flex;flex-wrap:wrap;gap:8px}
+.panel.on{display:block}
+@media (prefers-reduced-motion:no-preference){.panel.on{animation:slide 220ms var(--ease) both}}
+@keyframes slide{from{opacity:.001;transform:translateX(8px)}to{opacity:1;transform:none}}
+.joblist{list-style:none;margin:0;padding:0}
+.joblist li+li{border-top:1px solid var(--line)}
+.job{width:100%;display:grid;grid-template-columns:36px 1fr auto 20px;gap:12px;align-items:center;padding:12px 4px;min-height:60px;background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;border-radius:var(--r);transition:background-color 140ms var(--ease)}
+@media (hover:hover){.job:hover{background:var(--paper)}}
+.job:active{background:var(--blue-soft)}
+.job svg.i{width:26px;height:26px;color:var(--blue);justify-self:center}
+.job b{display:block;font-weight:650;font-size:16px}
+.job small{display:block;color:var(--muted);font-size:14px}
+.job .p{font-family:var(--display);font-weight:800;font-size:26px;line-height:1}
+.job .p small{display:inline;font-family:var(--body);font-weight:600;font-size:13px;color:var(--muted);margin-right:4px}
+.job svg.arr{width:18px;height:18px;color:var(--muted)}
+.tool__note{margin-top:10px;padding:12px 14px;background:var(--paper);border-radius:var(--r);font-size:15px;color:var(--ink-2)}
+.tool__note a{font-weight:700;color:var(--blue)}
+
+.chosen{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:16px}
+.chosen b{font-size:18px}
+.linkbtn{background:none;border:0;padding:8px 4px;min-height:44px;font:700 15px var(--body);color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
+.q{margin-bottom:16px}
+.q-l{display:block;font-weight:700;font-size:15px;margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
 .seg input{position:absolute;opacity:0;pointer-events:none}
-.seg label{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1.5px solid var(--line);border-radius:999px;font-weight:550;font-size:15px;cursor:pointer;transition:border-color 160ms var(--ease-out),background-color 160ms var(--ease-out)}
-.seg input:checked+label{border-color:var(--ink);background:var(--ink);color:var(--on-navy)}
-.seg input:focus-visible+label{outline:3px solid var(--accent);outline-offset:2px}
-.price{margin-top:22px;padding:18px;border-radius:var(--r-md);background:var(--bg);display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
-.price__num{font-family:var(--display);font-stretch:80%;font-weight:900;font-size:52px;line-height:.9;letter-spacing:-0.03em}
-.price__note{font-size:14px;color:var(--muted);text-align:right;max-width:20ch}
-.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
-.day{border:1.5px solid var(--line);border-radius:var(--r-md);padding:10px 4px;text-align:center;background:var(--surface);cursor:pointer;font:inherit;color:var(--ink);transition:border-color 160ms var(--ease-out),background-color 160ms var(--ease-out)}
-.day b{display:block;font-family:var(--display);font-stretch:85%;font-size:22px;line-height:1.1}
-.day small{font-size:13px;color:var(--muted);font-weight:550}
-.day[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--on-navy)}
-.day[aria-pressed="true"] small{color:var(--on-navy-muted)}
-.field{display:grid;gap:6px;margin-bottom:14px}
-.field label{font-weight:600;font-size:15px}
-.field input,.field textarea,.field select{width:100%;min-height:48px;padding:12px 14px;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font:inherit;color:var(--ink);transition:border-color 160ms var(--ease-out),box-shadow 160ms var(--ease-out);caret-color:var(--accent)}
-.field textarea{min-height:110px;resize:vertical}
-.field input::placeholder,.field textarea::placeholder{color:#717a8a}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(242,106,27,.35)}
-.field .err{color:var(--bad);font-size:14px;font-weight:550;min-height:0}
-.field.has-err input,.field.has-err textarea{border-color:var(--bad)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.q-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;border-top:1px solid var(--line);background:#fcfbf8}
-.linkbtn{background:none;border:0;font:600 15px var(--body);color:var(--ink-2);cursor:pointer;min-height:44px;padding:0 6px;text-decoration:underline;text-underline-offset:.25em}
-.summary{display:grid;gap:6px;padding:14px 16px;border:1px dashed var(--line-strong);border-radius:var(--r-md);margin-bottom:16px;font-size:15px}
-.summary b{font-weight:650}
-.done{text-align:center;padding:28px 6px}
-.done svg{width:56px;height:56px;color:var(--good);margin:0 auto 14px}
-.done h3{font-size:34px;margin-bottom:10px}
-.done p{color:var(--ink-2)}
-.sel{user-select:all}
-@media (max-width:420px){.jobs{grid-template-columns:1fr}.slots{grid-template-columns:repeat(3,1fr)}.row2{grid-template-columns:1fr}}
+.seg label{min-height:44px;display:inline-flex;align-items:center;gap:6px;padding:0 14px;border:2px solid var(--line-2);border-radius:var(--r);font-weight:600;font-size:15px;cursor:pointer;transition:border-color 140ms var(--ease),background-color 140ms var(--ease),color 140ms var(--ease)}
+.seg label em{font-style:normal;color:var(--muted);font-weight:600}
+@media (hover:hover){.seg label:hover{border-color:var(--ink)}}
+.seg input:checked+label{border-color:var(--blue);background:var(--blue);color:#fff}
+.seg input:checked+label em{color:var(--on-blue-2)}
+.seg input:focus-visible+label{outline:3px solid var(--orange);outline-offset:2px}
+.days{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.day{min-height:62px;border:2px solid var(--line-2);border-radius:var(--r);background:var(--bg);font:inherit;color:inherit;cursor:pointer;padding:6px 2px;line-height:1.15;transition:border-color 140ms var(--ease),background-color 140ms var(--ease)}
+.day small{display:block;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.day b{display:block;font-family:var(--display);font-size:24px;font-weight:800}
+@media (hover:hover){.day:hover{border-color:var(--ink)}}
+.day[aria-pressed="true"]{border-color:var(--blue);background:var(--blue);color:#fff}
+.day[aria-pressed="true"] small{color:var(--on-blue-2)}
+@media (max-width:430px){.days{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.total{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:18px;padding-top:16px;border-top:2px solid var(--ink)}
+.total__l{font-size:14px;color:var(--muted);font-weight:600}
+.total__n{font-family:var(--display);font-weight:900;font-size:46px;line-height:.9}
+.total__s{font-size:13px;color:var(--muted);max-width:24ch}
+.field{display:grid;gap:5px;margin-bottom:12px}
+.field label{font-weight:700;font-size:15px}
+.field input,.field textarea{width:100%;min-height:48px;padding:11px 13px;border:2px solid var(--line-2);border-radius:var(--r);background:var(--bg);font:inherit;color:var(--ink);caret-color:var(--blue);transition:border-color 140ms var(--ease)}
+.field textarea{min-height:104px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#6b707b}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue)}
+.field .err{color:var(--bad);font-size:14px;font-weight:600}
+.field.bad input,.field.bad textarea{border-color:var(--bad)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:430px){.two{grid-template-columns:1fr}}
+.recap{background:var(--blue-soft);border-radius:var(--r);padding:12px 14px;margin:14px 0;font-size:15px;display:grid;gap:2px}
+.recap b{font-weight:700}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.actions .btn{flex:1;max-width:280px;margin-left:auto}
+.done{padding:28px 4px 10px;text-align:center}
+.done svg{width:52px;height:52px;color:var(--good);margin:0 auto 12px;display:block}
+.done h3{font-size:36px;text-transform:uppercase;margin-bottom:8px}
+.done p{color:var(--ink-2);max-width:40ch;margin:0 auto}
+.copybox{margin-top:14px;text-align:left;white-space:pre-wrap;font:14px/1.5 var(--body);background:var(--paper);padding:12px;border-radius:var(--r);user-select:all}
 
 /* Sections */
-section{scroll-margin-top:72px}
-.sec{padding:clamp(72px,11vh,128px) 0}
-.sec__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:32px;align-items:end;margin-bottom:clamp(36px,5vw,56px)}
-.sec h2{font-size:clamp(38px,5.2vw,68px)}
-.sec__head p{color:var(--ink-2);font-size:18px;max-width:42ch}
-@media (max-width:860px){.sec__head{grid-template-columns:1fr}}
+.sec{padding:clamp(64px,9vw,112px) 0}
+.sec h2{font-size:clamp(40px,5.4vw,68px);text-transform:uppercase}
+.sec__intro{margin-top:14px;color:var(--ink-2);font-size:18px;max-width:52ch}
 
-/* How it works */
-.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0;counter-reset:s}
-.flow li{border-top:2px solid var(--ink);padding-top:20px;counter-increment:s}
-.flow h3{font-size:30px;margin:8px 0 10px}
-.flow h3::before{content:counter(s);display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:18px;margin-right:12px;vertical-align:4px;font-stretch:100%}
-.flow p{color:var(--ink-2);max-width:34ch}
-.mini{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:14px;box-shadow:0 1px 2px rgba(16,32,58,.05)}
-.mini .row{display:flex;justify-content:space-between;align-items:center;font-size:15px;padding:6px 0}
-.mini .row+.row{border-top:1px solid var(--line)}
-.mini .tag{font-size:13px;font-weight:650;padding:4px 10px;border-radius:999px;background:var(--accent-soft)}
-.mini .big{font-family:var(--display);font-stretch:80%;font-weight:900;font-size:30px}
-@media (max-width:860px){.flow{grid-template-columns:1fr;gap:40px}}
+/* Steps (a real sequence, so numbered) */
+.steps{margin:40px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:2px solid var(--ink);border-radius:8px;overflow:hidden}
+.steps li{padding:24px;display:grid;gap:8px;align-content:start}
+.steps li+li{border-left:2px solid var(--ink)}
+.steps .n{font-family:var(--display);font-weight:900;font-size:56px;line-height:.8;color:var(--blue)}
+.steps b{font-size:19px}
+.steps p{color:var(--ink-2)}
+@media (max-width:820px){.steps{grid-template-columns:1fr}.steps li+li{border-left:0;border-top:2px solid var(--ink)}}
+.incl{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.incl span{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;background:var(--paper);border-radius:999px;font-weight:600;font-size:15px}
+.incl svg{width:18px;height:18px;color:var(--blue)}
 
-/* Prices */
-.prices{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 48px;list-style:none;margin:0;padding:0}
-.prices li{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
-.prices .nm{font-weight:650;font-size:18px}
-.prices .nt{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
-.prices .pr{font-family:var(--display);font-stretch:80%;font-weight:850;font-size:28px}
-.prices .book{min-height:44px;padding:0 14px;border-radius:var(--r-sm);border:1.5px solid var(--line-strong);background:transparent;font:600 14px var(--body);color:var(--ink);cursor:pointer;transition:border-color 160ms var(--ease-out),background-color 160ms var(--ease-out),transform 160ms var(--ease-out)}
-.prices .book:active{transform:scale(.97)}
-@media (hover:hover){.prices .book:hover{border-color:var(--ink);background:var(--surface)}}
-.prices-foot{margin-top:28px;color:var(--ink-2);max-width:68ch}
-@media (max-width:860px){.prices{grid-template-columns:1fr}}
-
-/* Photo quote (dark band) */
-.band{background:var(--navy);color:var(--on-navy)}
-.band .sec__head p,.band .copy p{color:var(--on-navy-muted)}
-.band ::selection{background:var(--accent);color:var(--accent-ink)}
-.photo-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
-.copy ol{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:22px}
-.copy li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
-.copy li svg{width:28px;height:28px;color:var(--accent);margin-top:2px}
-.copy li b{display:block;font-size:18px;margin-bottom:2px}
-.copy li span{color:var(--on-navy-muted)}
-.pform{background:var(--surface);color:var(--ink);border-radius:var(--r-lg);padding:clamp(20px,3vw,32px);box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
-.drop{border:1.5px dashed var(--line-strong);border-radius:var(--r-md);padding:20px;text-align:center;cursor:pointer;transition:border-color 160ms var(--ease-out),background-color 160ms var(--ease-out);display:block}
-.drop:hover,.drop.is-over{border-color:var(--accent);background:var(--accent-soft)}
-.drop svg{width:28px;height:28px;margin:0 auto 6px;color:var(--ink-2)}
+/* Photo quote band */
+.band{background:var(--blue);color:var(--on-blue)}
+.band ::selection{background:#fff;color:var(--blue)}
+.band__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.band .sec__intro{color:var(--on-blue-2)}
+.band ul{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
+.band li{display:flex;gap:12px;align-items:flex-start;font-size:17px}
+.band li svg{width:22px;height:22px;flex:none;margin-top:2px;color:var(--orange)}
+.pform{background:var(--bg);color:var(--ink);border-radius:8px;padding:clamp(18px,3vw,28px)}
+.drop{display:block;border:2px dashed var(--line-2);border-radius:var(--r);padding:18px;text-align:center;cursor:pointer;transition:border-color 140ms var(--ease),background-color 140ms var(--ease)}
+.drop:hover,.drop.over{border-color:var(--blue);background:var(--blue-soft)}
+.drop svg{width:26px;height:26px;color:var(--blue);display:block;margin:0 auto 4px}
 .drop b{display:block}
 .drop small{color:var(--muted)}
 .drop input{position:absolute;width:1px;height:1px;opacity:0}
-.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.thumbs img{width:64px;height:64px;object-fit:cover;border-radius:var(--r-sm);border:1px solid var(--line);animation:enter-card 240ms var(--ease-out) both}
-.form-msg{margin-top:12px;font-weight:600;font-size:15px}
-.form-msg.ok{color:var(--good)}
-.form-msg.bad{color:var(--bad)}
-@media (max-width:960px){.photo-grid{grid-template-columns:1fr}}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.thumbs img{width:60px;height:60px;object-fit:cover;border-radius:var(--r)}
+.msg{margin-top:12px;font-weight:600;font-size:15px}
+.msg.ok{color:var(--good)}
+.msg.bad{color:var(--bad)}
+@media (max-width:960px){.band__grid{grid-template-columns:1fr}}
 
-/* Type moment */
-.moment{padding:clamp(80px,14vh,160px) 0}
-.moment__big{font-family:var(--display);font-weight:900;font-stretch:72%;font-size:clamp(56px,11vw,168px);line-height:.9;letter-spacing:-0.03em;margin:0}
-.moment__big span{display:block}
-.moment__big .o{color:var(--accent)}
-.moment__cols{margin-top:clamp(36px,5vw,56px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid var(--line);padding-top:28px}
-.moment__cols b{display:block;font-size:18px;margin-bottom:6px}
-.moment__cols p{color:var(--ink-2)}
-@media (max-width:860px){.moment__cols{grid-template-columns:1fr;gap:22px}}
-@media (prefers-reduced-motion:no-preference){
-  .moment__big span{transform:translateY(.12em);transition:opacity 700ms var(--ease-out),transform 700ms var(--ease-out)}
-  .moment__big.is-in span{opacity:1;transform:none}
-  .moment__big.is-in span:nth-child(2){transition-delay:120ms}
-  .moment__big.is-in span:nth-child(3){transition-delay:240ms}
-}
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.about p+p{margin-top:14px}
+.about .txt p{color:var(--ink-2);font-size:18px;max-width:46ch}
+.promises{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.promises li{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.promises svg{width:24px;height:24px;color:var(--blue);margin-top:1px}
+.promises b{display:block;font-size:17px}
+.promises span{color:var(--ink-2)}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
 
 /* FAQ */
-.faq{max-width:860px}
+.faq{margin-top:32px;max-width:820px;border-top:2px solid var(--ink)}
 .faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font-weight:650;font-size:19px;min-height:44px}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:700;font-size:18px;min-height:44px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary svg{width:22px;height:22px;flex:none;transition:transform 220ms var(--ease-out)}
+.faq summary svg{width:20px;height:20px;flex:none;color:var(--blue);transition:transform 200ms var(--ease)}
 .faq details[open] summary svg{transform:rotate(45deg)}
-.faq details p{padding:0 0 22px;color:var(--ink-2);max-width:66ch}
-.faq details[open] p{animation:panel-in 240ms var(--ease-out) both}
+.faq details p{padding:0 0 18px;color:var(--ink-2);max-width:64ch}
 
-/* Close + footer */
-.closing{background:var(--navy);color:var(--on-navy);padding:clamp(72px,12vh,128px) 0 32px}
-.closing__top{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap}
-.closing h2{font-size:clamp(44px,6.4vw,88px);max-width:12ch}
-.closing__top p{color:var(--on-navy-muted);margin-top:16px;font-size:18px;max-width:36ch}
-.closing .btn--primary{--bh:60px;font-size:18px;padding:0 28px}
-.footer{margin-top:clamp(56px,8vw,96px);padding-top:24px;border-top:1px solid rgba(246,244,239,.16);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--on-navy-muted);font-size:15px}
-.footer a{color:var(--on-navy);text-decoration:none}
-.footer a:hover{text-decoration:underline}
-.footer nav{display:flex;gap:20px;flex-wrap:wrap}
-.footer nav a{min-height:44px;display:inline-flex;align-items:center}
+/* Footer */
+.foot{background:var(--ink);color:#fff;padding:clamp(56px,8vw,96px) 0 calc(28px + env(safe-area-inset-bottom,0px))}
+.foot__cta{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid #2a2c31}
+.foot h2{font-size:clamp(44px,6vw,80px);text-transform:uppercase;max-width:14ch}
+.foot__cta .btn{min-height:58px;font-size:18px;padding:0 26px}
+.foot__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding-top:32px;font-size:15px}
+.foot__grid h3{font-family:var(--body);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9a9fab;margin-bottom:8px}
+.foot__grid a{text-decoration:none;color:#fff}
+.foot__grid a:hover{text-decoration:underline}
+.foot__grid p,.foot__grid li{color:#d5d8de}
+.foot__grid ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.foot__grid ul a{display:inline-flex;min-height:36px;align-items:center}
+.foot small{display:block;margin-top:32px;color:#9a9fab}
+@media (max-width:720px){.foot__grid{grid-template-columns:1fr}}
 
-/* Mobile call bar */
-.callbar{display:none}
-@media (max-width:860px){
-  .callbar{display:flex;position:fixed;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;gap:8px;padding:8px;background:rgba(16,32,58,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);transform:translateY(140%);transition:transform 320ms var(--ease-out)}
-  .callbar.is-on:not(.is-hidden){transform:none}
-  .callbar .btn{flex:1;--bh:48px}
-  .callbar .btn--ghost{color:var(--on-navy);border-color:rgba(246,244,239,.3)}
-  body{padding-bottom:84px}
+/* Phone action bar */
+.mbar{display:none}
+@media (max-width:880px){
+  .mbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:var(--bg);border-top:1px solid var(--line);transform:translateY(110%);transition:transform 260ms var(--ease)}
+  .mbar.on:not(.off){transform:none}
+  .mbar .btn{flex:1;min-height:48px}
+  body{padding-bottom:76px}
 }
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:1ms!important;animation-delay:0ms!important;transition-duration:1ms!important;scroll-behavior:auto!important}
-}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -297,111 +280,131 @@ section{scroll-margin-top:72px}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></g></symbol>
-    <symbol id="i-fan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10c0-4 1-6 4-6 2 0 2.5 2 1 3.5L13.5 11M14 12c4 0 6 1 6 4 0 2-2 2.5-3.5 1L13 13.5M12 14c0 4-1 6-4 6-2 0-2.5-2-1-3.5l3.5-3M10 12c-4 0-6-1-6-4 0-2 2-2.5 3.5-1L11 10.5"/></g></symbol>
-    <symbol id="i-faucet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h9a4 4 0 0 1 4 4v1M8 10V7M5 7h6M17 18v1M17 21v.5"/></g></symbol>
-    <symbol id="i-toilet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7H6zM4 10h15a6 6 0 0 1-6 6h-3a6 6 0 0 1-6-6zM9 16l-1 5h7l-1-5"/></g></symbol>
-    <symbol id="i-door" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M3 21h18M14.5 12.5h.01"/></g></symbol>
-    <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/></g></symbol>
-    <symbol id="i-wall" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></g></symbol>
-    <symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></g></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></g></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
-    <symbol id="i-tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9-9-9z"/><circle cx="8" cy="8" r="1.5"/></g></symbol>
-    <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></g></symbol>
-    <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></g></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></g></symbol>
+    <symbol id="fan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M5 6h14"/><circle cx="12" cy="9" r="2"/><path d="M10 9H4l1 2h5M14 9h6l-1 2h-5M12 11v6M10 20h4"/></g></symbol>
+    <symbol id="faucet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h8a5 5 0 0 1 5 5v1M8 10V7M5 6h6M17 19v.01M17 22v.01"/></g></symbol>
+    <symbol id="toilet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7H6zM4 10h15a6 6 0 0 1-6 6h-3a6 6 0 0 1-6-6zM9 16l-1 5h7l-1-5"/></g></symbol>
+    <symbol id="door" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V3h12v18M3 21h18M14.5 12v.01"/></g></symbol>
+    <symbol id="box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/></g></symbol>
+    <symbol id="wall" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></g></symbol>
+    <symbol id="list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h10M10 12h10M10 18h10M4 6l1.5 1.5L8 5M4 12l1.5 1.5L8 11M4 18l1.5 1.5L8 17"/></g></symbol>
+    <symbol id="go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ok" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></g></symbol>
+    <symbol id="tick" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.4"/></g></symbol>
+    <symbol id="cam" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h4l2-3h6l2 3h4v12H3z"/><circle cx="12" cy="13.5" r="3.5"/></g></symbol>
+    <symbol id="msg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></g></symbol>
+    <symbol id="broom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l-4 9M6 12h8l2 9H4z"/></g></symbol>
+    <symbol id="card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 10h18M7 15h3"/></g></symbol>
+    <symbol id="clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
   </defs>
 </svg>
 
-<header class="nav" id="top">
-  <div class="wrap nav__row">
-    <a class="brand" href="#top" aria-label="Zach of All Trades, home">
-      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#f26a1b"/><path d="M9 10h14L10 22h14" fill="none" stroke="#10203a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Zach of All Trades
+<header class="top">
+  <div class="wrap top__row">
+    <a class="logo" href="#main" aria-label="Zach of All Trades, back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#1e4fd6"/><path d="M9 9.5h14L9.5 22.5H23" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="square"/></svg>
+      <span>Zach of All Trades</span>
     </a>
-    <nav class="nav__links" aria-label="Main">
-      <a href="#prices">Prices</a>
-      <a href="#photos">Photo quotes</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn--primary" href="#quote">Get a price</a>
+    <nav aria-label="Main">
+      <a class="l" href="#quote">Prices</a>
+      <a class="l" href="#how">How it works</a>
+      <a class="l" href="#photos">Photo quote</a>
+      <a class="l" href="#faq">FAQ</a>
+      <a class="l js-phone" href="#" hidden></a>
+      <a class="btn btn--go" href="#quote">Book a job</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" aria-labelledby="hero-h">
+  <section class="hero" aria-labelledby="h1">
     <div class="wrap hero__grid">
-      <div data-enter>
-        <h1 id="hero-h">Handyman work, <em>priced</em> before I pull up.</h1>
-        <p class="hero__lead">Pick the job, see the price, book a slot. Bigger stuff? Send photos and get a quote by text, usually within 2 hours.</p>
-        <div class="hero__facts">
-          <span><svg aria-hidden="true"><use href="#i-tag"/></svg><span class="js-rate">$100/hr</span>, flat prices on 8 jobs</span>
-          <span><svg aria-hidden="true"><use href="#i-clock"/></svg>Arrival window by text</span>
+      <div class="hero__copy">
+        <h1 id="h1">Handyman work. <span class="b">Prices up front.</span></h1>
+        <p class="hero__lead">Small repairs, installs and honey-do lists<span class="js-town-in"></span>. Pick your job to see the price and book a time, or send photos of anything bigger.</p>
+        <div class="paths">
+          <a class="path" href="#quote">
+            <span class="path__ico"><svg aria-hidden="true"><use href="#tag"/></svg></span>
+            <span><b>Small job? See prices</b><small>Flat prices, book online</small></span>
+            <svg class="arr" aria-hidden="true"><use href="#chev"/></svg>
+          </a>
+          <a class="path" href="#photos">
+            <span class="path__ico"><svg aria-hidden="true"><use href="#cam"/></svg></span>
+            <span><b>Bigger job? Send photos</b><small>Quote by text in about 2 hours</small></span>
+            <svg class="arr" aria-hidden="true"><use href="#chev"/></svg>
+          </a>
         </div>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#quote">Get a price <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn--ghost" href="#photos">Send photos</a>
+        <div class="trust">
+          <span><svg aria-hidden="true"><use href="#tick"/></svg>Price before I show up</span>
+          <span><svg aria-hidden="true"><use href="#tick"/></svg>Text when I'm on the way</span>
+          <span><svg aria-hidden="true"><use href="#tick"/></svg>Cleanup included</span>
         </div>
       </div>
 
-      <!-- Instant quote tool. Menu jobs book themselves; custom jobs go to #photos. -->
-      <form class="quote" id="quote" data-enter-card novalidate aria-label="Instant price">
-        <div class="quote__head">
-          <span class="quote__title">Instant price</span>
-          <span class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
+      <!-- Booking tool: prices visible up front, three short steps -->
+      <form class="tool" id="quote" novalidate aria-labelledby="tool-h">
+        <div class="tool__bar">
+          <h2 id="tool-h">Book a job</h2>
+          <ol class="stepper" aria-label="Steps">
+            <li class="on" data-s="1">1 Job</li>
+            <li data-s="2">2 Details</li>
+            <li data-s="3">3 Your info</li>
+          </ol>
         </div>
-        <div class="quote__body">
-          <div class="panel is-active" data-step="1">
-            <span class="q-label" id="jobs-l">What needs doing?</span>
-            <div class="jobs" role="group" aria-labelledby="jobs-l" id="jobs"></div>
+        <div class="tool__body">
+          <div class="panel on" data-step="1">
+            <ul class="joblist" id="joblist" aria-label="Jobs with flat prices"></ul>
+            <p class="tool__note">Something else? <span class="js-rate">$100</span>/hr, <span class="js-min">2</span> hour minimum. <a href="#photos">Send photos for a quote</a>.</p>
           </div>
 
           <div class="panel" data-step="2">
-            <span class="q-label" id="opt-title">A couple of details</span>
-            <div class="opts" id="opts"></div>
-            <div class="price" aria-live="polite">
-              <div>
-                <div class="price__num num" id="price">$0</div>
-              </div>
-              <p class="price__note" id="price-note">Flat price. Materials are yours unless noted.</p>
+            <div class="chosen"><b id="job-name">Job</b><button type="button" class="linkbtn" data-back>Change job</button></div>
+            <div id="opts"></div>
+            <div class="q">
+              <span class="q-l" id="day-l">Day</span>
+              <div class="days" id="days" role="group" aria-labelledby="day-l"></div>
             </div>
+            <div class="q">
+              <span class="q-l" id="win-l">Arrival window</span>
+              <div class="seg" role="radiogroup" aria-labelledby="win-l">
+                <input type="radio" name="window" id="w1" value="8 to 11 am" checked><label for="w1">8 to 11 am</label>
+                <input type="radio" name="window" id="w2" value="11 am to 2 pm"><label for="w2">11 am to 2 pm</label>
+                <input type="radio" name="window" id="w3" value="2 to 5 pm"><label for="w3">2 to 5 pm</label>
+              </div>
+            </div>
+            <div class="total" aria-live="polite">
+              <div><div class="total__l" id="total-l">Your price</div><div class="total__n num" id="total">$0</div></div>
+              <p class="total__s" id="total-s">Flat price for this setup. Parts are yours unless noted.</p>
+            </div>
+            <div class="actions"><button type="button" class="btn btn--go" id="to3" disabled>Next: your info <svg aria-hidden="true"><use href="#go"/></svg></button></div>
           </div>
 
           <div class="panel" data-step="3">
-            <span class="q-label" id="days-l">Pick a day</span>
-            <div class="slots" role="group" aria-labelledby="days-l" id="days"></div>
-            <span class="q-label" id="win-l" style="margin-top:20px">Arrival window</span>
-            <div class="seg" role="radiogroup" aria-labelledby="win-l">
-              <input type="radio" name="window" id="w-am" value="Morning (8 to 11)" checked><label for="w-am">Morning, 8 to 11</label>
-              <input type="radio" name="window" id="w-mid" value="Midday (11 to 2)"><label for="w-mid">Midday, 11 to 2</label>
-              <input type="radio" name="window" id="w-pm" value="Afternoon (2 to 5)"><label for="w-pm">Afternoon, 2 to 5</label>
+            <div class="recap" id="recap"></div>
+            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+            <div class="two">
+              <div class="field"><label for="f-phone">Mobile number</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><span class="err" aria-live="polite"></span></div>
+              <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+            </div>
+            <div class="field"><label for="f-addr">Job address</label><input id="f-addr" name="address" autocomplete="street-address" required><span class="err" aria-live="polite"></span></div>
+            <div class="actions">
+              <button type="button" class="linkbtn" data-back>Back</button>
+              <button type="button" class="btn btn--go" id="submit">Request this time <svg aria-hidden="true"><use href="#go"/></svg></button>
             </div>
           </div>
 
           <div class="panel" data-step="4">
-            <div class="summary" id="summary"></div>
-            <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
-            <div class="row2">
-              <div class="field"><label for="q-phone">Mobile</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err" aria-live="polite"></span></div>
-              <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
-            </div>
-            <div class="field"><label for="q-addr">Street address</label><input id="q-addr" name="address" autocomplete="street-address" required><span class="err" aria-live="polite"></span></div>
-          </div>
-
-          <div class="panel" data-step="5">
             <div class="done">
-              <svg aria-hidden="true"><use href="#i-check"/></svg>
-              <h3>Request sent</h3>
-              <p id="done-msg">I'll text to confirm your slot. Card goes on file at confirmation and is charged when the job is done.</p>
+              <svg aria-hidden="true"><use href="#ok"/></svg>
+              <h3 id="done-h">Request sent</h3>
+              <p id="done-p">I'll text you to confirm the time. You pay by card when the job is done.</p>
+              <div id="done-x"></div>
+              <button type="button" class="linkbtn" id="again" style="margin-top:10px">Book another job</button>
             </div>
           </div>
-        </div>
-        <div class="q-foot">
-          <button type="button" class="linkbtn" id="back" hidden>Back</button>
-          <span id="foot-hint" style="font-size:14px;color:var(--muted)">Not listed? <a href="#photos">Send photos</a></span>
-          <button type="button" class="btn btn--primary" id="next" disabled>Continue <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
       </form>
     </div>
@@ -409,357 +412,279 @@ section{scroll-margin-top:72px}
 
   <section class="sec" id="how" aria-labelledby="how-h">
     <div class="wrap">
-      <div class="sec__head">
-        <h2 id="how-h">Three taps from broken to booked.</h2>
-        <p>No site visit to get a number. No phone tag. The price you see is the price you pay for the job you picked.</p>
-      </div>
-      <ol class="flow">
-        <li>
-          <h3>Pick the job</h3>
-          <p>TV mount, faucet, fan, door, drywall patch. Answer two quick questions about size and wall type.</p>
-          <div class="mini" aria-hidden="true">
-            <div class="row"><span>TV mount, 55"</span><span class="tag">Drywall</span></div>
-            <div class="row"><span>Hide the cords</span><span>Yes</span></div>
-          </div>
-        </li>
-        <li>
-          <h3>See the price</h3>
-          <p>A flat price on screen before you give a single detail. Hourly jobs show the rate and the minimum.</p>
-          <div class="mini" aria-hidden="true">
-            <div class="row"><span>Your price</span><span class="big num">$274</span></div>
-          </div>
-        </li>
-        <li>
-          <h3>Book a window</h3>
-          <p>Pick a day and a 3-hour window. You get a text the day before and another when I'm on the way.</p>
-          <div class="mini" aria-hidden="true">
-            <div class="row"><span>Thu, morning</span><span class="tag">Confirmed</span></div>
-          </div>
-        </li>
+      <h2 id="how-h">How it works</h2>
+      <p class="sec__intro">No waiting around for someone to come out and bid a two-hour job.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><b>Pick your job</b><p>Choose from the list and answer one or two quick questions. The price updates as you go.</p></li>
+        <li><span class="n">2</span><b>Choose a time</b><p>Pick a day and a 3-hour arrival window. I text you to confirm.</p></li>
+        <li><span class="n">3</span><b>Pay when it's done</b><p>A text the day before, another when I'm on the way. Pay by card once you're happy.</p></li>
       </ol>
-    </div>
-  </section>
-
-  <section class="sec" id="prices" aria-labelledby="prices-h" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec__head">
-        <h2 id="prices-h">Flat prices on the jobs people call about most.</h2>
-        <p>Everything else is <span class="js-rate">$100/hr</span> with a <span class="js-min">2 hour</span> minimum, or a flat bid from your photos.</p>
+      <div class="incl" aria-label="Included with every job">
+        <span><svg aria-hidden="true"><use href="#tag"/></svg>No trip fee</span>
+        <span><svg aria-hidden="true"><use href="#broom"/></svg>Cleanup and haul-away</span>
+        <span><svg aria-hidden="true"><use href="#card"/></svg>Card, Apple Pay or bank transfer</span>
+        <span><svg aria-hidden="true"><use href="#clock"/></svg>3-hour arrival windows</span>
       </div>
-      <ul class="prices" id="price-list"></ul>
-      <p class="prices-foot">Prices cover labor. Parts like the fan, faucet or toilet are yours to pick, or I can grab them at cost and hand you the receipt.</p>
     </div>
   </section>
 
-  <section class="sec band" id="photos" aria-labelledby="photos-h">
-    <div class="wrap photo-grid">
-      <div class="copy">
-        <h2 id="photos-h" style="font-size:clamp(38px,5.2vw,68px)">Bigger job? Send photos.</h2>
-        <p style="margin-top:20px;font-size:18px;max-width:40ch">Drywall, trim, a sticky door, a whole honey-do list. Three or four photos and a sentence is enough to price it.</p>
-        <ol>
-          <li><svg aria-hidden="true"><use href="#i-camera"/></svg><div><b>Snap it</b><span>Wide shot, close shot, and anything with a tape measure in it.</span></div></li>
-          <li><svg aria-hidden="true"><use href="#i-chat"/></svg><div><b>Get a quote by text</b><span>A flat price and an hourly estimate, so you pick the one you like.</span></div></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><b>Approve in one tap</b><span>Jobs over $500 take a 25% deposit. The rest is due when it's done.</span></div></li>
-        </ol>
+  <section class="sec band" id="photos" aria-labelledby="ph-h">
+    <div class="wrap band__grid">
+      <div>
+        <h2 id="ph-h">Bigger job? Send photos.</h2>
+        <p class="sec__intro">Drywall, trim, doors that stick, a whole list of small stuff. A few photos and a sentence is all I need to price it.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#tick"/></svg>Take a wide shot and a close-up of each thing</li>
+          <li><svg aria-hidden="true"><use href="#tick"/></svg>Get a flat price and an hourly estimate by text</li>
+          <li><svg aria-hidden="true"><use href="#tick"/></svg>Approve with one tap. Jobs over $500 take a 25% deposit</li>
+        </ul>
       </div>
       <form class="pform" id="pform" novalidate aria-label="Photo quote request">
-        <div class="field"><label for="p-desc">What's the job?</label><textarea id="p-desc" name="description" placeholder="Fist-size hole in the hallway drywall, plus two doors that stick in summer." required></textarea><span class="err" aria-live="polite"></span></div>
+        <div class="field"><label for="p-desc">What needs doing?</label><textarea id="p-desc" name="description" placeholder="Example: fist-size hole in the hallway drywall, and two bedroom doors that stick." required></textarea><span class="err" aria-live="polite"></span></div>
         <div class="field">
-          <span style="font-weight:600;font-size:15px">Photos</span>
+          <label for="p-photos">Photos</label>
           <label class="drop" id="drop" for="p-photos">
-            <svg aria-hidden="true"><use href="#i-camera"/></svg>
-            <b>Add photos</b>
-            <small>Up to 6. Tap to use your camera or library.</small>
-            <input id="p-photos" name="photos" type="file" accept="image/*" multiple>
+            <svg aria-hidden="true"><use href="#cam"/></svg>
+            <b id="drop-b">Add photos</b>
+            <small>Up to 6, from your camera or library</small>
           </label>
+          <input id="p-photos" name="photos" type="file" accept="image/*" multiple style="position:absolute;width:1px;height:1px;opacity:0">
           <div class="thumbs" id="thumbs"></div>
         </div>
-        <div class="row2">
+        <div class="two">
           <div class="field"><label for="p-name">Name</label><input id="p-name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
-          <div class="field"><label for="p-phone">Mobile</label><input id="p-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err" aria-live="polite"></span></div>
+          <div class="field"><label for="p-phone">Mobile number</label><input id="p-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><span class="err" aria-live="polite"></span></div>
         </div>
-        <div class="field"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
-        <button class="btn btn--primary" type="submit" style="width:100%">Send for a quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-        <p class="form-msg" id="p-msg" aria-live="polite"></p>
+        <button class="btn btn--go" type="submit" style="width:100%">Send for a quote <svg aria-hidden="true"><use href="#go"/></svg></button>
+        <p class="msg" id="p-msg" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
-  <section class="moment" id="zach" aria-labelledby="zach-h">
-    <div class="wrap">
-      <h2 class="moment__big" id="zach-h"><span>One guy.</span><span>One truck.</span><span class="o">Whatever's broken.</span></h2>
-      <div class="moment__cols">
-        <div><b>Price first</b><p>You see the number before anyone shows up. No "we'll see when we get there."</p></div>
-        <div><b>On time, or a text</b><p>A 3-hour window, a reminder the day before, and a heads-up when I'm on the way.</p></div>
-        <div><b>Leaves it clean</b><p>Drop cloths down, dust vacuumed, old parts hauled off. You'd never know I was there.</p></div>
+  <section class="sec" id="about" aria-labelledby="ab-h">
+    <div class="wrap about">
+      <div class="txt">
+        <h2 id="ab-h">Hi, I'm Zach</h2>
+        <p style="margin-top:18px">I fix the stuff on your list that never gets done. Mounting, patching, swapping, hanging, assembling. If it takes a few hours and a truck full of tools, that's my job.</p>
+        <p>You deal with me from the first text to the last screw.</p>
       </div>
+      <ul class="promises">
+        <li><svg aria-hidden="true"><use href="#tag"/></svg><div><b>The price you see is the price you pay</b><span>If something hidden changes the job, you approve it before I do any extra work.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#msg"/></svg><div><b>You always know when I'm coming</b><span>A reminder the day before and a text when I'm on the way.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#broom"/></svg><div><b>I leave it cleaner than I found it</b><span>Drop cloths down, dust vacuumed, old parts hauled away.</span></div></li>
+      </ul>
     </div>
   </section>
 
   <section class="sec" id="faq" aria-labelledby="faq-h" style="padding-top:0">
     <div class="wrap">
-      <div class="sec__head"><h2 id="faq-h">Questions before you book.</h2></div>
+      <h2 id="faq-h">Common questions</h2>
       <div class="faq">
-        <details><summary>How do I pay?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Card, Apple Pay or bank transfer, through a secure link. Menu jobs put a card on file and charge when the work is done. No cash or checks.</p></details>
-        <details><summary>What won't you take on?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>New electrical circuits, gas lines, main plumbing and full remodels. Those need a licensed specialist, and I'll point you to a good one.</p></details>
-        <details><summary>How soon can you come out?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>The booking calendar shows real open days. Small jobs often go same week. Photo quotes come back by text, usually within 2 hours during the day.</p></details>
-        <details><summary>Do you bring the parts?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Bring your own, or I pick them up at cost and hand you the receipt. Screws, anchors, caulk and the small stuff are always included.</p></details>
-        <details><summary>What if the job takes longer than the flat price?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>A flat price is flat. If something hidden changes the job, like rot behind the drywall, you hear about it and approve it before any extra work starts.</p></details>
+        <details><summary>Do I need to buy the parts?<svg aria-hidden="true"><use href="#plus"/></svg></summary><p>For things like a faucet, fan or toilet, you pick the one you like and have it ready. Or I can pick it up and charge you what I paid, with the receipt. Screws, anchors, caulk and small stuff are always included.</p></details>
+        <details><summary>How do I pay?<svg aria-hidden="true"><use href="#plus"/></svg></summary><p>By card, Apple Pay or bank transfer through a secure link, once the job is done. I don't take cash or checks.</p></details>
+        <details><summary>How soon can you come?<svg aria-hidden="true"><use href="#plus"/></svg></summary><p>The booking tool shows the days I have open. Small jobs often fit in the same week. Photo quotes come back by text, usually within 2 hours during the day.</p></details>
+        <details><summary>What jobs won't you do?<svg aria-hidden="true"><use href="#plus"/></svg></summary><p>New electrical circuits, gas lines, main plumbing lines and full remodels. Those need a licensed specialist, and I'll point you to a good one.</p></details>
+        <details><summary>What if it takes longer than expected?<svg aria-hidden="true"><use href="#plus"/></svg></summary><p>A flat price stays flat. If I find something hidden, like rot behind drywall, I show you and you decide before anything changes.</p></details>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="closing" id="contact">
+<footer class="foot">
   <div class="wrap">
-    <div class="closing__top">
-      <div>
-        <h2>Got a list? Let's knock it out.</h2>
-        <p>Price it in a minute. Book it in two.</p>
-      </div>
-      <a class="btn btn--primary" href="#quote">Get a price <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <div class="foot__cta">
+      <h2>Got a list? Let's get it done.</h2>
+      <a class="btn btn--go" href="#quote">Book a job <svg aria-hidden="true"><use href="#go"/></svg></a>
     </div>
-    <div class="footer">
-      <span>&copy; <span id="yr"></span> Zach of All Trades<span class="js-area"></span></span>
-      <nav aria-label="Footer">
-        <a href="#prices">Prices</a>
-        <a href="#photos">Photo quotes</a>
-        <a href="#faq">FAQ</a>
-        <a class="js-email" href="mailto:hello@zachofalltrades.example">hello@zachofalltrades.example</a>
-      </nav>
+    <div class="foot__grid">
+      <div><h3>Contact</h3><ul><li class="js-phone-li" hidden><a class="js-phone2" href="#"></a></li><li><a class="js-email" href="#">hello@zachofalltrades.example</a></li></ul></div>
+      <div><h3>Hours</h3><p class="js-hours">Monday to Saturday, 8 am to 5 pm</p></div>
+      <div class="js-area-col" hidden><h3>Service area</h3><p class="js-area"></p></div>
     </div>
+    <small>&copy; <span id="yr"></span> Zach of All Trades</small>
   </div>
 </footer>
 
-<div class="callbar" id="callbar">
-  <a class="btn btn--primary" href="#quote">Get a price</a>
-  <a class="btn btn--ghost js-text" href="#photos">Send photos</a>
+<div class="mbar" id="mbar">
+  <a class="btn btn--go" href="#quote">Book a job</a>
+  <a class="btn btn--line js-mtext" href="#photos">Send photos</a>
 </div>
 
 <script>
 /* ===== CONFIG: edit before launch ===== */
 const CONFIG = {
-  town: "",                       // e.g. "Lynden". Shows in the footer once set.
+  town: "",                         // e.g. "Lynden". Adds "in Lynden" to the hero and sets the service area.
+  area: "",                         // e.g. "Lynden, Ferndale, Everson and nearby"
+  phone: "",                        // display, e.g. "(360) 555-0100". Shows "Text Zach" links once set.
+  hours: "Monday to Saturday, 8 am to 5 pm",
   email: "hello@zachofalltrades.example",
-  sms: "",                        // e.g. "+13605550100". Turns "Send photos" in the phone bar into a text link.
-  endpoint: "",                   // Form endpoint (Zapier catch hook / Jobber request URL). Empty = opens an email draft.
+  endpoint: "",                     // Zapier catch hook or Jobber request URL. Empty = forms show details to email.
   rate: 100,
   minHours: 2,
   jobs: [
-    { id:"tv", name:"TV mount", icon:"tv", base:199, note:"Up to 65\", on drywall",
-      opts:[
-        { key:"size", label:"TV size", choices:[["Up to 55\"",0],["56 to 65\"",0],["Over 65\"",60]] },
-        { key:"wall", label:"Wall", choices:[["Drywall",0],["Brick or stone",75]] },
-        { key:"cords", label:"Hide the cords in the wall", choices:[["No",0],["Yes",75]] } ] },
+    { id:"tv", name:"TV mounting", icon:"tv", base:199, note:"Up to 65\", drywall",
+      opts:[ { key:"size", label:"TV size", choices:[["Up to 65\"",0],["Over 65\"",60]] },
+             { key:"wall", label:"Wall type", choices:[["Drywall",0],["Brick or stone",75]] },
+             { key:"cords", label:"Hide cords in the wall", choices:[["No",0],["Yes",75]] } ] },
     { id:"fan", name:"Ceiling fan swap", icon:"fan", base:189, note:"Existing box, your fan",
-      opts:[ { key:"height", label:"Ceiling height", choices:[["Up to 9 ft",0],["Vaulted, over 9 ft",60]] } ] },
-    { id:"faucet", name:"Faucet replace", icon:"faucet", base:179, note:"Your faucet",
-      opts:[ { key:"where", label:"Where", choices:[["Bathroom",0],["Kitchen",30]] } ] },
-    { id:"toilet", name:"Toilet replace", icon:"toilet", base:249, note:"Old one hauled off",
-      opts:[ { key:"floor", label:"Floor flange", choices:[["Looks fine",0],["Wobbly or leaking",65]] } ] },
-    { id:"door", name:"Interior door hang", icon:"door", base:199, note:"Prehung door",
-      opts:[ { key:"count", label:"How many doors", choices:[["1",0],["2",170],["3",340]] } ] },
-    { id:"assembly", name:"Furniture assembly", icon:"box", base:100, hourly:true, note:"$100/hr, 1 hr minimum",
-      opts:[ { key:"hours", label:"How big", choices:[["One piece, about 1 hr",0],["A few pieces, about 2 hr",100],["A room's worth, about 3 hr",200]] } ] },
-    { id:"drywall", name:"Drywall patch", icon:"wall", base:229, note:"Up to 12\", textured and painted",
-      opts:[ { key:"holes", label:"How many patches", choices:[["1",0],["2",90],["3",180]] } ] },
-    { id:"honeydo", name:"Honey-do half day", icon:"list", base:425, note:"4 hours, parts extra",
-      opts:[ { key:"length", label:"Length", choices:[["Half day, 4 hr",0],["Full day, 8 hr",375]] } ] }
+      opts:[ { key:"h", label:"Ceiling height", choices:[["Up to 9 ft",0],["Vaulted",60]] } ] },
+    { id:"faucet", name:"Faucet replacement", icon:"faucet", base:179, note:"Your faucet",
+      opts:[ { key:"w", label:"Where", choices:[["Bathroom",0],["Kitchen",30]] } ] },
+    { id:"toilet", name:"Toilet replacement", icon:"toilet", base:249, note:"Old one hauled away",
+      opts:[ { key:"f", label:"Does the old one rock or leak?", choices:[["No",0],["Yes",65]] } ] },
+    { id:"door", name:"Interior door install", icon:"door", base:199, note:"Prehung door, per door",
+      opts:[ { key:"n", label:"How many doors", choices:[["1",0],["2",170],["3",340]] } ] },
+    { id:"drywall", name:"Drywall patch", icon:"wall", base:229, note:"Up to 12\", painted to match",
+      opts:[ { key:"n", label:"How many patches", choices:[["1",0],["2",90],["3",180]] } ] },
+    { id:"assembly", name:"Furniture assembly", icon:"box", base:100, hourly:true, note:"Billed by the hour",
+      opts:[ { key:"h", label:"How much", choices:[["1 piece, about 1 hr",0],["A few pieces, about 2 hr",100],["A room, about 3 hr",200]] } ] },
+    { id:"honeydo", name:"Honey-do list", icon:"list", base:425, note:"4 hours, parts extra",
+      opts:[ { key:"l", label:"How long", choices:[["Half day, 4 hr",0],["Full day, 8 hr",375]] } ] }
   ]
 };
 /* ===== end CONFIG ===== */
 
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
-const money = n => "$" + n.toLocaleString("en-US");
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const usd = n => "$" + n.toLocaleString("en-US");
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Config into the page
+// Fill the page from CONFIG
 $("#yr").textContent = new Date().getFullYear();
-$$(".js-rate").forEach(e => e.textContent = money(CONFIG.rate) + "/hr");
-$$(".js-min").forEach(e => e.textContent = CONFIG.minHours + " hour");
-if (CONFIG.town) $(".js-area").textContent = " · Handyman in " + CONFIG.town;
+$$(".js-rate").forEach(e => e.textContent = usd(CONFIG.rate));
+$$(".js-min").forEach(e => e.textContent = CONFIG.minHours);
 $$(".js-email").forEach(a => { a.href = "mailto:" + CONFIG.email; a.textContent = CONFIG.email; });
-if (CONFIG.sms) { const t = $(".js-text"); t.href = "sms:" + CONFIG.sms; t.textContent = "Text Zach"; }
+$(".js-hours").textContent = CONFIG.hours;
+if (CONFIG.town) $(".js-town-in").textContent = " in " + CONFIG.town;
+if (CONFIG.area || CONFIG.town) { $(".js-area").textContent = CONFIG.area || CONFIG.town + " and nearby"; $(".js-area-col").hidden = false; }
+if (CONFIG.phone) {
+  const sms = "sms:" + CONFIG.phone.replace(/[^\d+]/g, "");
+  const p = $(".js-phone"); p.hidden = false; p.href = sms; p.textContent = "Text " + CONFIG.phone;
+  $(".js-phone-li").hidden = false; const p2 = $(".js-phone2"); p2.href = sms; p2.textContent = "Text " + CONFIG.phone;
+  const m = $(".js-mtext"); m.href = sms; m.textContent = "Text Zach";
+}
 
-// Nav border on scroll, phone bar after the hero
-const nav = $(".nav"), bar = $("#callbar"), hero = $(".hero");
-new IntersectionObserver(([e]) => { nav.classList.toggle("is-stuck", !e.isIntersecting); bar.classList.toggle("is-on", !e.isIntersecting); },
-  { rootMargin: "-80px 0px 0px 0px" }).observe(hero.querySelector(".hero__actions"));
+// Phone bar: after the hero, hidden while the booking tool is on screen
+const mbar = $("#mbar");
+new IntersectionObserver(([e]) => mbar.classList.toggle("on", !e.isIntersecting), { rootMargin: "-68px 0px 0px 0px" }).observe($(".paths"));
+new IntersectionObserver(([e]) => mbar.classList.toggle("off", e.isIntersecting), { threshold: .1 }).observe($("#quote"));
 
-new IntersectionObserver(([e]) => bar.classList.toggle("is-hidden", e.isIntersecting), { threshold: .15 }).observe($("#quote"));
-
-// Type moment: once, inside its own section
-const big = $(".moment__big");
-new IntersectionObserver(([e], o) => { if (e.isIntersecting) { big.classList.add("is-in"); o.disconnect(); } }, { threshold: .35 }).observe(big);
-
-/* ---------- Instant quote ---------- */
+/* ---------- Booking tool ---------- */
 const form = $("#quote");
-const state = { step: 1, job: null, picks: {}, day: null };
-const jobsEl = $("#jobs"), optsEl = $("#opts"), priceEl = $("#price");
-const nextBtn = $("#next"), backBtn = $("#back"), hint = $("#foot-hint");
+const S = { step: 1, job: null, picks: {}, day: null };
+const job = () => CONFIG.jobs.find(j => j.id === S.job);
+const total = () => { const j = job(); return j ? j.base + j.opts.reduce((s, o) => s + o.choices[S.picks[o.key]][1], 0) : 0; };
 
-CONFIG.jobs.forEach(j => {
-  const b = document.createElement("button");
-  b.type = "button"; b.className = "job"; b.dataset.id = j.id; b.setAttribute("aria-pressed", "false");
-  b.innerHTML = `<svg aria-hidden="true"><use href="#i-${j.icon}"/></svg><span>${j.name}</span>`;
-  b.addEventListener("click", () => selectJob(j.id, true));
-  jobsEl.appendChild(b);
-});
-
-// Price list from the same config, so the two can't disagree
-const list = $("#price-list");
+const list = $("#joblist");
 CONFIG.jobs.forEach(j => {
   const li = document.createElement("li");
-  li.innerHTML = `<span class="nm">${j.name}<span class="nt">${j.note}</span></span>
-    <span class="pr num">${j.hourly ? money(j.base) + "/hr" : money(j.base)}</span>
-    <button type="button" class="book" data-id="${j.id}">Book</button>`;
-  li.querySelector(".book").addEventListener("click", () => {
-    selectJob(j.id, true);
-    form.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
-  });
+  li.innerHTML = `<button type="button" class="job" data-id="${j.id}">
+    <svg class="i" aria-hidden="true"><use href="#${j.icon}"/></svg>
+    <span><b>${j.name}</b><small>${j.note}</small></span>
+    <span class="p num">${j.hourly ? usd(j.base) + "<small>/hr</small>" : "<small>from</small>" + usd(j.base)}</span>
+    <svg class="arr" aria-hidden="true"><use href="#chev"/></svg></button>`;
+  li.firstElementChild.addEventListener("click", () => pick(j.id));
   list.appendChild(li);
 });
 
-function currentJob(){ return CONFIG.jobs.find(j => j.id === state.job); }
-function total(){
-  const j = currentJob(); if (!j) return 0;
-  return j.base + j.opts.reduce((s, o) => s + (o.choices[state.picks[o.key] ?? 0][1]), 0);
-}
-
-function selectJob(id, advance){
-  state.job = id; state.picks = {};
-  $$(".job", jobsEl).forEach(b => b.setAttribute("aria-pressed", String(b.dataset.id === id)));
-  const j = currentJob();
-  $("#opt-title").textContent = j.name;
-  optsEl.innerHTML = "";
+function pick(id){
+  S.job = id; S.picks = {};
+  const j = job();
+  $("#job-name").textContent = j.name;
+  const box = $("#opts"); box.innerHTML = "";
   j.opts.forEach(o => {
-    state.picks[o.key] = 0;
-    const wrap = document.createElement("div");
-    const gid = "g-" + o.key;
-    wrap.innerHTML = `<span class="q-label" id="${gid}">${o.label}</span><div class="seg" role="radiogroup" aria-labelledby="${gid}"></div>`;
-    const seg = wrap.querySelector(".seg");
-    o.choices.forEach(([label, add], i) => {
-      const iid = `o-${o.key}-${i}`;
-      seg.insertAdjacentHTML("beforeend",
-        `<input type="radio" name="${o.key}" id="${iid}" value="${i}" ${i===0?"checked":""}><label for="${iid}">${label}${add?` <span style="opacity:.7;margin-left:6px">+${money(add)}</span>`:""}</label>`);
-    });
-    seg.addEventListener("change", e => { state.picks[o.key] = +e.target.value; renderPrice(); });
-    optsEl.appendChild(wrap);
+    S.picks[o.key] = 0;
+    const q = document.createElement("div"); q.className = "q";
+    q.innerHTML = `<span class="q-l" id="l-${o.key}">${o.label}</span><div class="seg" role="radiogroup" aria-labelledby="l-${o.key}"></div>`;
+    const seg = q.lastElementChild;
+    o.choices.forEach(([t, add], i) => seg.insertAdjacentHTML("beforeend",
+      `<input type="radio" name="o-${o.key}" id="o-${o.key}-${i}" value="${i}"${i ? "" : " checked"}><label for="o-${o.key}-${i}">${t}${add ? ` <em>+${usd(add)}</em>` : ""}</label>`));
+    seg.addEventListener("change", e => { S.picks[o.key] = +e.target.value; price(); });
+    box.appendChild(q);
   });
-  $("#price-note").textContent = j.hourly ? "Estimate at " + money(CONFIG.rate) + "/hr. Billed for actual time." : "Flat price for this setup. Materials yours unless noted.";
-  renderPrice(true);
-  if (advance) go(2); else update();
+  $("#total-l").textContent = j.hourly ? "Estimate" : "Your price";
+  $("#total-s").textContent = j.hourly ? `${usd(CONFIG.rate)}/hr, billed for actual time.` : "Flat price for this setup. Parts are yours unless noted.";
+  price(true);
+  go(2);
 }
 
-// Price counts to its new value: fast ease-out, under 300ms
 let shown = 0, raf;
-function renderPrice(instant){
-  const to = total();
-  cancelAnimationFrame(raf);
-  if (instant || reduce) { shown = to; priceEl.textContent = money(to); return; }
-  const from = shown, t0 = performance.now(), dur = 280;
-  const step = t => {
-    const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
-    shown = Math.round(from + (to - from) * e);
-    priceEl.textContent = money(shown);
-    if (p < 1) raf = requestAnimationFrame(step);
-  };
-  raf = requestAnimationFrame(step);
+function price(now){
+  const to = total(); cancelAnimationFrame(raf);
+  if (now || still) { shown = to; $("#total").textContent = usd(to); return; }
+  const from = shown, t0 = performance.now();
+  const tick = t => { const p = Math.min(1, (t - t0) / 260), e = 1 - Math.pow(1 - p, 4);
+    shown = Math.round(from + (to - from) * e); $("#total").textContent = usd(shown); if (p < 1) raf = requestAnimationFrame(tick); };
+  raf = requestAnimationFrame(tick);
 }
 
-// Next 10 bookable weekdays, starting tomorrow
-const daysEl = $("#days");
-(function buildDays(){
-  const d = new Date(); let n = 0;
-  while (n < 10) {
-    d.setDate(d.getDate() + 1);
-    if (d.getDay() === 0) continue;
+// Next 12 open days (Mon to Sat), from tomorrow
+(function(){
+  const box = $("#days"), d = new Date(); let n = 0;
+  while (n < 12) {
+    d.setDate(d.getDate() + 1); if (d.getDay() === 0) continue;
     const b = document.createElement("button");
     b.type = "button"; b.className = "day"; b.setAttribute("aria-pressed", "false");
-    const iso = d.toISOString().slice(0, 10);
-    b.dataset.date = iso;
-    b.dataset.label = d.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
+    const long = d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+    b.setAttribute("aria-label", long); b.dataset.label = long;
     b.innerHTML = `<small>${d.toLocaleDateString("en-US", { weekday: "short" })}</small><b>${d.getDate()}</b><small>${d.toLocaleDateString("en-US", { month: "short" })}</small>`;
-    b.addEventListener("click", () => {
-      state.day = b.dataset.label;
-      $$(".day", daysEl).forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-      update();
-    });
-    daysEl.appendChild(b); n++;
+    b.addEventListener("click", () => { S.day = long; $$(".day", box).forEach(x => x.setAttribute("aria-pressed", String(x === b))); $("#to3").disabled = false; });
+    box.appendChild(b); n++;
   }
 })();
 
 function go(step){
-  state.step = step;
-  $$(".panel", form).forEach(p => p.classList.toggle("is-active", +p.dataset.step === step));
-  $$(".steps i", form).forEach((i, k) => i.classList.toggle("on", k < Math.min(step, 4)));
-  if (step === 4) {
-    const w = form.querySelector('input[name="window"]:checked').value;
-    const j = currentJob();
-    $("#summary").innerHTML = `<div><b>${j.name}</b>, ${money(total())}${j.hourly ? " estimate" : ""}</div><div>${state.day}, ${w}</div>`;
+  S.step = step;
+  $$(".panel", form).forEach(p => p.classList.toggle("on", +p.dataset.step === step));
+  $$(".stepper li", form).forEach(li => { const s = +li.dataset.s; li.classList.toggle("on", s === Math.min(step, 3)); li.classList.toggle("done", s < step); });
+  if (step === 3) {
+    const j = job(), w = form.querySelector('input[name="window"]:checked').value;
+    $("#recap").innerHTML = `<div><b>${j.name}</b> · ${usd(total())}${j.hourly ? " estimate" : ""}</div><div>${S.day}, ${w}</div>`;
   }
-  update();
-  const focusEl = form.querySelector(".panel.is-active button, .panel.is-active input");
-  if (focusEl && step > 1) focusEl.focus({ preventScroll: true });
+  if (step > 1) { const r = form.getBoundingClientRect(); if (r.top < 0 || r.top > 90) form.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" }); }
 }
+$$("[data-back]", form).forEach(b => b.addEventListener("click", () => go(S.step - 1)));
+$("#to3").addEventListener("click", () => go(3));
+$("#again").addEventListener("click", () => { S.day = null; $$(".day").forEach(x => x.setAttribute("aria-pressed", "false")); $("#to3").disabled = true; go(1); });
 
-function update(){
-  const s = state.step;
-  backBtn.hidden = s === 1 || s === 5;
-  hint.hidden = s !== 1;
-  nextBtn.hidden = s === 5;
-  nextBtn.disabled = (s === 1 && !state.job) || (s === 3 && !state.day);
-  nextBtn.firstChild.textContent = s === 2 ? "Pick a time " : s === 4 ? "Request this slot " : "Continue ";
-}
-
-backBtn.addEventListener("click", () => go(Math.max(1, state.step - 1)));
-nextBtn.addEventListener("click", async () => {
-  if (state.step < 4) return go(state.step + 1);
-  if (!validate(form)) return;
-  const j = currentJob();
-  const data = {
-    type: "booking", job: j.name, price: total(), hourly: !!j.hourly,
-    options: j.opts.map(o => `${o.label}: ${o.choices[state.picks[o.key]][0]}`).join("; "),
-    day: state.day, window: form.querySelector('input[name="window"]:checked').value,
-    name: $("#q-name").value.trim(), phone: $("#q-phone").value.trim(),
-    email: $("#q-email").value.trim(), address: $("#q-addr").value.trim()
-  };
-  nextBtn.disabled = true;
-  const ok = await send(data, null);
-  nextBtn.disabled = false;
-  if (ok === "sent") return go(5);
-  $(".done h3").textContent = ok === "fail" ? "Not sent yet" : "Almost there";
-  $("#done-msg").innerHTML = (ok === "fail" ? "That didn't go through. " : "Online booking isn't switched on yet. ") +
-    `Email these details to <b class="sel">${CONFIG.email}</b> and I'll text to confirm.<pre class="sel" style="text-align:left;white-space:pre-wrap;font:14px/1.5 var(--body);background:var(--bg);padding:12px;border-radius:8px;margin-top:12px">${fallbackText(data).replace(/</g,"&lt;")}</pre>`;
-  go(5);
+$("#submit").addEventListener("click", async () => {
+  if (!check($('.panel[data-step="3"]'))) return;
+  const j = job();
+  const data = { type: "booking", job: j.name, price: usd(total()) + (j.hourly ? " (estimate)" : ""),
+    details: j.opts.map(o => `${o.label}: ${o.choices[S.picks[o.key]][0]}`).join("; "),
+    day: S.day, window: form.querySelector('input[name="window"]:checked').value,
+    name: $("#f-name").value.trim(), phone: $("#f-phone").value.trim(), email: $("#f-email").value.trim(), address: $("#f-addr").value.trim() };
+  const btn = $("#submit"); btn.disabled = true;
+  const r = await send(data); btn.disabled = false;
+  $("#done-x").innerHTML = "";
+  if (r !== "sent") {
+    $("#done-h").textContent = r === "fail" ? "Not sent yet" : "One more step";
+    $("#done-p").innerHTML = (r === "fail" ? "That didn't go through. " : "Online booking isn't switched on yet. ") + `Email these details to <b>${CONFIG.email}</b> and I'll text you to confirm.`;
+    const pre = document.createElement("div"); pre.className = "copybox"; pre.textContent = lines(data); $("#done-x").appendChild(pre);
+  }
+  go(4);
 });
 
-/* ---------- Validation (errors under their own field) ---------- */
-function validate(scope){
+/* ---------- Validation: errors under their own field ---------- */
+function check(scope){
   let first = null;
-  $$(".panel.is-active .field, .field", scope).forEach(f => {
-    const el = f.querySelector("input,textarea"); if (!el || !el.required) return;
-    if (el.closest(".panel") && !el.closest(".panel").classList.contains("is-active")) return;
-    let msg = "";
-    const v = el.value.trim();
-    if (!v) msg = "Needed so I can reach you.";
-    else if (el.type === "email" && !/^\S+@\S+\.\S+$/.test(v)) msg = "That email looks off. Check for a typo.";
-    else if (el.type === "tel" && v.replace(/\D/g, "").length < 10) msg = "Add the full 10-digit number.";
-    if (el.tagName === "TEXTAREA" && !v) msg = "A sentence about the job is enough.";
-    f.classList.toggle("has-err", !!msg);
-    f.querySelector(".err").textContent = msg;
-    el.setAttribute("aria-invalid", msg ? "true" : "false");
-    if (msg && !first) first = el;
+  $$(".field", scope).forEach(f => {
+    const el = f.querySelector("input[required],textarea[required]"); if (!el) return;
+    const v = el.value.trim(); let m = "";
+    if (!v) m = el.tagName === "TEXTAREA" ? "Add a sentence about the job." : "Please fill this in.";
+    else if (el.type === "email" && !/^\S+@\S+\.\S+$/.test(v)) m = "Check the email for a typo.";
+    else if (el.type === "tel" && v.replace(/\D/g, "").length < 10) m = "Enter the full 10-digit number.";
+    f.classList.toggle("bad", !!m); f.querySelector(".err").textContent = m; el.setAttribute("aria-invalid", m ? "true" : "false");
+    if (m && !first) first = el;
   });
   if (first) first.focus();
   return !first;
 }
 $$(".field input, .field textarea").forEach(el => el.addEventListener("input", () => {
-  const f = el.closest(".field"); if (f.classList.contains("has-err")) { f.classList.remove("has-err"); f.querySelector(".err").textContent = ""; el.setAttribute("aria-invalid","false"); }
+  const f = el.closest(".field"); if (f && f.classList.contains("bad")) { f.classList.remove("bad"); f.querySelector(".err").textContent = ""; el.setAttribute("aria-invalid", "false"); }
 }));
 
-/* ---------- Sending: POSTs to CONFIG.endpoint (Zapier hook / Jobber). Without one, shows the details to email. ---------- */
+/* ---------- Sending: POST to CONFIG.endpoint ---------- */
 async function send(data, files){
   if (!CONFIG.endpoint) return "none";
   try {
@@ -770,37 +695,33 @@ async function send(data, files){
     return r.ok ? "sent" : "fail";
   } catch (e) { return "fail"; }
 }
-function fallbackText(data){ return Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n"); }
+const lines = d => Object.entries(d).map(([k, v]) => `${k}: ${v}`).join("\n");
 
 /* ---------- Photo quote ---------- */
-const pform = $("#pform"), drop = $("#drop"), input = $("#p-photos"), thumbs = $("#thumbs");
+const drop = $("#drop"), input = $("#p-photos"), thumbs = $("#thumbs");
 let photos = [];
 function addFiles(fl){
   [...fl].filter(f => f.type.startsWith("image/")).forEach(f => { if (photos.length < 6) photos.push(f); });
   thumbs.innerHTML = "";
-  photos.forEach(f => { const img = new Image(); img.alt = "Photo to quote: " + f.name; img.src = URL.createObjectURL(f); thumbs.appendChild(img); });
-  drop.querySelector("b").textContent = photos.length ? `${photos.length} photo${photos.length > 1 ? "s" : ""} added` : "Add photos";
+  photos.forEach(f => { const i = new Image(); i.alt = "Photo of the job: " + f.name; i.src = URL.createObjectURL(f); thumbs.appendChild(i); });
+  $("#drop-b").textContent = photos.length ? `${photos.length} photo${photos.length > 1 ? "s" : ""} added` : "Add photos";
 }
 input.addEventListener("change", () => addFiles(input.files));
-["dragenter","dragover"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("is-over"); }));
-["dragleave","drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("is-over"); }));
+["dragenter","dragover"].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add("over"); }));
+["dragleave","drop"].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove("over"); }));
 drop.addEventListener("drop", e => addFiles(e.dataTransfer.files));
 
-pform.addEventListener("submit", async e => {
+$("#pform").addEventListener("submit", async e => {
   e.preventDefault();
-  const msg = $("#p-msg"); msg.className = "form-msg"; msg.textContent = "";
-  if (!validate(pform)) return;
-  const data = { type: "photo-quote", description: $("#p-desc").value.trim(), name: $("#p-name").value.trim(),
-    phone: $("#p-phone").value.trim(), email: $("#p-email").value.trim(), photos: photos.length };
-  const btn = pform.querySelector('button[type="submit"]'); btn.disabled = true;
-  const ok = await send(data, photos);
-  btn.disabled = false;
-  if (ok === "sent") { msg.classList.add("ok"); msg.textContent = "Sent. Expect a quote by text, usually within 2 hours."; pform.reset(); photos = []; addFiles([]); }
-  else if (ok === "none") { msg.classList.add("ok"); msg.textContent = `Online photo quotes aren't switched on yet. Email the photos and a line about the job to ${CONFIG.email}.`; }
+  const msg = $("#p-msg"); msg.className = "msg"; msg.textContent = "";
+  if (!check($("#pform"))) return;
+  const data = { type: "photo quote", description: $("#p-desc").value.trim(), name: $("#p-name").value.trim(), phone: $("#p-phone").value.trim(), photos: photos.length };
+  const btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true;
+  const r = await send(data, photos); btn.disabled = false;
+  if (r === "sent") { msg.classList.add("ok"); msg.textContent = "Sent. You'll get a quote by text, usually within 2 hours."; e.target.reset(); photos = []; addFiles([]); }
+  else if (r === "none") { msg.classList.add("ok"); msg.textContent = `Online photo quotes aren't switched on yet. Email the photos and a line about the job to ${CONFIG.email}.`; }
   else { msg.classList.add("bad"); msg.textContent = "That didn't go through. Check your connection and try again."; }
 });
-
-update();
 </script>
 </body>
 </html>
