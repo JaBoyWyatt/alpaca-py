@@ -191,7 +191,7 @@ p{margin:0;text-wrap:pretty}
 /* Travel */
 .travel{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);align-items:start;margin-top:36px}
 .tbl{width:100%;border-collapse:collapse;font-size:16px}
-.tbl th{text-align:left;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:0 12px 10px 0;border-bottom:1.5px solid var(--ink)}
+.tbl th{white-space:nowrap;text-align:left;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:0 12px 10px 0;border-bottom:1.5px solid var(--ink)}
 .tbl td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line);vertical-align:top}
 .tbl td:first-child{font-weight:700;white-space:nowrap}
 .tbl td.mono{font-weight:600;white-space:nowrap}
@@ -465,7 +465,7 @@ p{margin:0;text-wrap:pretty}
 <script>
 /* ===== CONFIG: edit before launch ===== */
 const CONFIG = {
-  town: "",                         // home base, e.g. "Lynden". Shows in the hero and travel section.
+  town: "Alexandria",               // home base. Shows in the hero, travel section and footer.
   phone: "",                        // display, e.g. "(360) 555-0100". Shows "Text" links once set.
   hours: "Monday to Saturday, 8 am to 5 pm",
   email: "hello@zachofalltrades.example",
@@ -475,8 +475,11 @@ const CONFIG = {
   // Travel zones by road miles from home base. Fill zips with the ZIP codes in each zone
   // and the ZIP checker turns on. A ZIP in no zone = outside the area (photo quote only).
   zones: [
-    { miles:"0 to 20 miles",  fee:0,  rule:"No trip fee. Any job, any size.", zips:[] },
-    { miles:"20 to 35 miles", fee:35, rule:"$35 trip fee. $250 job minimum.", min:250, zips:[] },
+    // ZIPs placed by approximate road miles from Alexandria, MN. Zach to confirm.
+    { miles:"0 to 20 miles",  fee:0,  rule:"No trip fee. Any job, any size. Alexandria, Carlos, Garfield, Brandon, Evansville, Osakis, Glenwood, Miltona, Kensington, Farwell, Nelson.",
+      zips:["56308","56319","56332","56315","56326","56360","56334","56354","56343","56327","56355"] },
+    { miles:"20 to 35 miles", fee:35, rule:"$35 trip fee. $250 job minimum. Villard, Hoffman, Starbuck, Ashby, Parkers Prairie, Sauk Centre.", min:250,
+      zips:["56385","56339","56381","56309","56361","56378"] },
     { miles:"Over 35 miles",  fee:null, rule:"Photo quote only. Bigger jobs, case by case.", zips:null }
   ],
   jobs: [
@@ -515,7 +518,7 @@ $$(".js-rate").forEach(e => e.textContent = usd(CONFIG.rate));
 $$(".js-min").forEach(e => e.textContent = CONFIG.minHours);
 $$(".js-email").forEach(a => { a.href = "mailto:" + CONFIG.email; a.textContent = CONFIG.email; });
 $$(".js-hours").forEach(e => e.textContent = CONFIG.hours);
-if (CONFIG.town) { $(".js-town-in").textContent = " in " + CONFIG.town + " and nearby"; $(".js-base").textContent = " in " + CONFIG.town; $(".js-area").textContent = " · Handyman in " + CONFIG.town; }
+if (CONFIG.town) { $(".js-town-in").textContent = " in " + CONFIG.town + " and nearby"; $(".js-base").textContent = " in " + CONFIG.town; $(".js-area").textContent = " · Handyman in " + CONFIG.town + ", MN"; }
 if (CONFIG.phone) {
   const sms = "sms:" + CONFIG.phone.replace(/[^\d+]/g, "");
   const p = $(".js-phone"); p.hidden = false; p.href = sms; p.textContent = "Text " + CONFIG.phone;
